@@ -12,10 +12,10 @@ namespace nimap_company.Models
     {
         [Key]
         public int ProductId { set; get; }
-        [Display(ShortName ="Product Name")]
+        [Display(Name ="Product Name")]
         public string ProductName { set; get; }
         [ForeignKey("Categories")]
-        [Display(ShortName = "Category Name")]
+        [Display(Name = "Category Name")]
         public int CategoryId { set; get; }
         // Navigation property
         public virtual Category Categories { get; set; }

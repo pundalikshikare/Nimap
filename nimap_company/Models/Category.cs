@@ -12,7 +12,7 @@ namespace nimap_company.Models
     {
         [Key]
         public int CategoryId { set; get; }
-        [Display(ShortName = "Category Name")]
+        [Display(Name = "Category Name")]
         public string CategoryName { set; get; }
         // Navigation property for related Products
         public virtual ICollection<Product> Products { get; set; }

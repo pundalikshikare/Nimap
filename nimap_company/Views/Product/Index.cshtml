@@ -1,0 +1,65 @@
+﻿@model nimap_company.Models.ProductPaginationViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Category ID</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+        <tr>
+            <td>@product.ProductId</td>
+            <td>@product.ProductName</td>
+            <td>@product.CategoryId</td>
+            <td>@product.CategoryName</td>
+            <td colspan="2">
+                @Html.ActionLink("Edit", "EditProduct", new { id = product.ProductId }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.ProductId })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+        {
+            <li>
+                @Html.ActionLink("First", "Index", new { page = 1 })
+            </li>
+            <li>
+                @Html.ActionLink("Previous", "Index", new { page = Model.CurrentPage - 1 })
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="@(i == Model.CurrentPage ? "active" : "")">
+                @Html.ActionLink(i.ToString(), "Index", new { page = i })
+            </li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li>
+                @Html.ActionLink("Next", "Index", new { page = Model.CurrentPage + 1 })
+            </li>
+            <li>
+                @Html.ActionLink("Last", "Index", new { page = Model.TotalPages })
+            </li>
+        }
+    </ul>
+</div>

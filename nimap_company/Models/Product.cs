@@ -17,7 +17,7 @@ namespace nimap_company.Models
         [ForeignKey("Categories")]
         [Display(Name = "Category Name")]
         public int CategoryId { set; get; }
-        // Navigation property
+       
         public virtual Category Categories { get; set; }
     }
 }

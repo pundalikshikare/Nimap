@@ -17,4 +17,12 @@ namespace nimap_company.Models
         // Navigation property for related Products
         public virtual ICollection<Product> Products { get; set; }
     }
+
+    public class CategoryPaginationViewModel
+    {
+        public List<Category> Category { get; set; }  
+        public int CurrentPage { get; set; }         
+        public int TotalPages { get; set; }          
+        public int PageSize { get; set; }            
+    }
 }

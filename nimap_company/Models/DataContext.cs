@@ -20,9 +20,9 @@ namespace nimap_company.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
-                        .HasRequired(p => p.Categories)         // A product must have a category
-                        .WithMany(c => c.Products)            // A category can have many products
-                        .HasForeignKey(p => p.CategoryId);    // Define CategoryId as the foreign key
+                        .HasRequired(p => p.Categories)         
+                        .WithMany(c => c.Products)           
+                        .HasForeignKey(p => p.CategoryId);    
 
             base.OnModelCreating(modelBuilder);
         }

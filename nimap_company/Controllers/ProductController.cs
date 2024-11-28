@@ -19,11 +19,10 @@ namespace nimap_company.Controllers
         #region List Product
         public ActionResult Index(int page = 1, int pageSize = 2)
         {
-
-            // Get the total number of products for pagination
+            
             var totalProducts = objContext.Products.Count();
 
-            // Calculate the total number of pages
+           
             var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
 
             var result = objContext.Products.OrderBy(o => o.ProductId).Skip((page - 1) * pageSize) // Skip records for previous pages
@@ -37,7 +36,7 @@ namespace nimap_company.Controllers
                CategoryName = p.Categories.CategoryName
            })
            .ToList();
-            // Pass pagination data to the view
+           
             var model = new ProductPaginationViewModel
             {
                 Products = result,

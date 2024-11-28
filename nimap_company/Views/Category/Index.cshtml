@@ -1,34 +1,30 @@
-﻿@model nimap_company.Models.ProductPaginationViewModel
+﻿@model nimap_company.Models.CategoryPaginationViewModel
 
 @{
-    ViewBag.Title = "Product List";
+    ViewBag.Title = "Category List";
 }
 
-<h2>Product List</h2>
+<h2>Category List</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
             <th>Category ID</th>
             <th>Category Name</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in Model.Products)
+        @foreach (var category in Model.Category)
         {
-        <tr>
-            <td>@product.ProductId</td>
-            <td>@product.ProductName</td>
-            <td>@product.CategoryId</td>
-            <td>@product.CategoryName</td>
-            <td colspan="2">
-                @Html.ActionLink("Edit", "EditProduct", new { id = product.ProductId }) |
-                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.ProductId })
-            </td>
-        </tr>
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td colspan="2">
+                    @Html.ActionLink("Edit", "EditCategory", new { id = category.CategoryId }) |
+                    @Html.ActionLink("Delete", "DeleteCategory", new { id = category.CategoryId })
+                </td>
+            </tr>
         }
     </tbody>
 </table>

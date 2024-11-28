@@ -18,9 +18,9 @@ namespace nimap_company.Models
     }
     public class ProductPaginationViewModel
     {
-        public List<ProductViewModel> Products { get; set; }  // List of products to display
-        public int CurrentPage { get; set; }         // Current page number
-        public int TotalPages { get; set; }          // Total number of pages
-        public int PageSize { get; set; }            // Number of records per page
+        public List<ProductViewModel> Products { get; set; }  
+        public int CurrentPage { get; set; }         
+        public int TotalPages { get; set; }         
+        public int PageSize { get; set; }          
     }
 }
